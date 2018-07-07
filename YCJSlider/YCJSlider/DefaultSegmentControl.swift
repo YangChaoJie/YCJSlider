@@ -36,10 +36,8 @@ fileprivate class DefaultItemView : UIView {
     }
     
     fileprivate func itemWidth() -> CGFloat {
-        
         if let text = titleLabel.text {
-            let string = text as NSString
-            let size = string.size(withAttributes: [NSAttributedStringKey.font:selectedFont!])
+            let size = text.size(withAttributes: [NSAttributedStringKey.font:selectedFont!])
             return size.width + DefaultSegmentPattern.itemBorder
         }
         
@@ -94,8 +92,8 @@ fileprivate class DefaultItemView : UIView {
                 self.titleLabel.font = font
             }
         }
-    }
-    fileprivate var selectedFont : UIFont?{
+    } 
+    open var selectedFont : UIFont?{
         didSet{
             if state == .Selected {
                 self.titleLabel.font = selectedFont
